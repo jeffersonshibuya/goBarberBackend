@@ -12,6 +12,7 @@ import Appointment from '../models/Appointments';
 
 class AvailableController {
   async index(req, res) {
+    console.log('here')
     const { date } = req.query;
 
     if (!date) return res.status(400).json({ error: 'Invalid date' });

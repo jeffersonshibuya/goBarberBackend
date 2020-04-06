@@ -25,6 +25,10 @@ routes.get('/debug-sentry', function mainHandler(req, res) {
   throw new Error('My first Sentry error!');
 });
 
+routes.get('/test', function test(req, res) {
+  return res.json({ test: 'testing...' })
+});
+
 routes.use(authMiddleware);
 
 routes.put('/users', UserController.update);
