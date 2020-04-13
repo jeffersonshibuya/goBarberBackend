@@ -76,8 +76,6 @@ class AppointmentController {
       },
     });
 
-    console.log(checkAvaliability);
-
     if (checkAvaliability) {
       return res.json({ error: 'Appointment date is not available' });
     }
@@ -103,7 +101,7 @@ class AppointmentController {
       user: provider_id,
     });
 
-    res.json(appointment);
+    return res.json(appointment);
   }
 
   async delete(req, res) {
