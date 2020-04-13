@@ -15,6 +15,8 @@ import ScheduleController from './app/controllers/ScheduleController';
 import NotificationsController from './app/controllers/NotificationsController';
 import AvailableController from './app/controllers/AvailableController';
 
+import TestController from './app/controllers/TestController';
+
 const routes = new Router();
 const upload = multer(multerConfig);
 
@@ -25,9 +27,7 @@ routes.get('/debug-sentry', function mainHandler(req, res) {
   throw new Error('My first Sentry error!');
 });
 
-routes.get('/test', function test(req, res) {
-  return res.json({ test: 'testing...' })
-});
+routes.get('/test', TestController.index);
 
 routes.use(authMiddleware);
 
@@ -37,8 +37,8 @@ routes.get('/providers', ProviderController.index);
 routes.get('/providers/:providerId/available', AvailableController.index);
 
 routes.get('/appointments', AppointmentController.index);
-routes.post('/appointment', AppointmentController.store);
-routes.delete('/appointment/:id', AppointmentController.delete);
+routes.post('/appointments', AppointmentController.store);
+routes.delete('/appointments/:id', AppointmentController.delete);
 
 routes.get('/schedule', ScheduleController.index);
 

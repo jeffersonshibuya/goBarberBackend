@@ -37,7 +37,6 @@ class ScheculeController {
       order: ['date'],
     });
 
-
     return res.json(appointments);
   }
 }
